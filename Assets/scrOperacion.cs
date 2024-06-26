@@ -25,7 +25,7 @@ public class scrOperacion : MonoBehaviour
     int valorObjetoOperacion;
 
     int precioCorrecto;
-    int posicionAzar;
+    public int posicionAzar;
 
     scrObjeto scrobjeto1;
     scrObjeto scrobjeto2;
