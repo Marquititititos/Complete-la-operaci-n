@@ -11,8 +11,6 @@ public class scrOperacion : MonoBehaviour
     public GameObject[] opcion3;
     public GameObject[] objetoOperacion;
 
-    
-
     public Text textoOpcion1;
     public Text textoOpcion2;
     public Text textoOpcion3;
@@ -34,9 +32,7 @@ public class scrOperacion : MonoBehaviour
 
     void Start()
     {
-
-        // Elegir objetos al azar
-
+ 
         foreach (GameObject obj in opcion1)
         {
             obj.SetActive(false);
@@ -57,10 +53,22 @@ public class scrOperacion : MonoBehaviour
             obj.SetActive(false);
         }
 
-        objeto1 = Random.Range(0, opcion1.Length - 1);
-        objeto2 = Random.Range(0, opcion2.Length - 1);
-        objeto3 = Random.Range(0, opcion3.Length - 1);
-        valorObjetoOperacion = Random.Range(0, objetoOperacion.Length - 1);
+
+        objeto1 = Random.Range(0, opcion1.Length);
+
+
+        do
+        {
+            objeto2 = Random.Range(0, opcion2.Length);
+        } while (objeto2 == objeto1);
+
+
+        do
+        {
+            objeto3 = Random.Range(0, opcion3.Length);
+        } while (objeto3 == objeto1 || objeto3 == objeto2);
+
+        valorObjetoOperacion = Random.Range(0, objetoOperacion.Length);
 
         opcion1[objeto1].SetActive(true);
         opcion2[objeto2].SetActive(true);
@@ -77,7 +85,6 @@ public class scrOperacion : MonoBehaviour
         textoOpcion3.text = scrobjeto3.precio.ToString();
         textoObjetoOperacion.text = scrobjetooperacion.precio.ToString();
 
-        // Hacer operación
 
         posicionAzar = Random.Range(1, 4);
 
@@ -85,26 +92,16 @@ public class scrOperacion : MonoBehaviour
         {
             precioCorrecto = scrobjeto1.precio;
         }
-
-        if (posicionAzar == 2)
+        else if (posicionAzar == 2)
         {
             precioCorrecto = scrobjeto2.precio;
         }
-
-        if (posicionAzar == 3)
+        else if (posicionAzar == 3)
         {
             precioCorrecto = scrobjeto3.precio;
         }
 
         operacion.text = " + ____ = " + (precioCorrecto + scrobjetooperacion.precio);
-
-
-
-    }
-
-    
-    void Update()
-    {
-        
     }
 }
+

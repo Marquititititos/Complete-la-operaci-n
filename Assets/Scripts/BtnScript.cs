@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class BtnScript : MonoBehaviour
 {
     public GameObject objetoConScrOperacion;
-    public Text correcto;
     public GameObject panelCorrecto;
+    public GameObject panelIncorrecto;
+    public GameObject panelNoRespuesta;
     int respuesta;
 
 
@@ -42,13 +43,12 @@ public class BtnScript : MonoBehaviour
         {
             panelCorrecto.SetActive(true);
         } 
-        else if //si respuesta es igual a 0
-
+        else if (respuesta == 0)
         {
-            //elegi una
+            panelNoRespuesta.SetActive(true);
         } else
         {
-            //elegiste mal
+            panelIncorrecto.SetActive(true);
         }
     }
 }
