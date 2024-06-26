@@ -17,24 +17,39 @@ public class BtnScript : MonoBehaviour
     {
 
         operacionScript = objetoConScrOperacion.GetComponent<scrOperacion>();
-        panelCorrecto.SetActive(true);
 
     }
 
-    void Btn1()
+    public void Btn1()
     {
         respuesta = 1;
 
     }
-    void Btn2()
+    public void Btn2()
     {
         respuesta = 2;
 
     }
-    void Btn3()
+    public void Btn3()
     {
         respuesta = 3;
 
+    }
+
+    public void Responder()
+    {
+        if (respuesta == operacionScript.posicionAzar)
+        {
+            panelCorrecto.SetActive(true);
+        } 
+        else if //si respuesta es igual a 0
+
+        {
+            //elegi una
+        } else
+        {
+            //elegiste mal
+        }
     }
 }
 
