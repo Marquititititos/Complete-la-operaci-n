@@ -11,15 +11,21 @@ public class scrOperacion : MonoBehaviour
     public GameObject[] opcion3;
     public GameObject[] objetoOperacion;
 
+    
+
     public Text textoOpcion1;
     public Text textoOpcion2;
     public Text textoOpcion3;
     public Text textoObjetoOperacion;
+    public Text operacion;
 
     int objeto1;
     int objeto2;
     int objeto3;
     int valorObjetoOperacion;
+
+    int precioCorrecto;
+    int posicionAzar;
 
     scrObjeto scrobjeto1;
     scrObjeto scrobjeto2;
@@ -28,6 +34,9 @@ public class scrOperacion : MonoBehaviour
 
     void Start()
     {
+
+        // Elegir objetos al azar
+
         foreach (GameObject obj in opcion1)
         {
             obj.SetActive(false);
@@ -67,6 +76,29 @@ public class scrOperacion : MonoBehaviour
         textoOpcion2.text = scrobjeto2.precio.ToString();
         textoOpcion3.text = scrobjeto3.precio.ToString();
         textoObjetoOperacion.text = scrobjetooperacion.precio.ToString();
+
+        // Hacer operación
+
+        posicionAzar = Random.Range(1, 4);
+
+        if (posicionAzar == 1)
+        {
+            precioCorrecto = scrobjeto1.precio;
+        }
+
+        if (posicionAzar == 2)
+        {
+            precioCorrecto = scrobjeto2.precio;
+        }
+
+        if (posicionAzar == 3)
+        {
+            precioCorrecto = scrobjeto3.precio;
+        }
+
+        operacion.text = " + ____ = " + (precioCorrecto + scrobjetooperacion.precio);
+
+
 
     }
 
