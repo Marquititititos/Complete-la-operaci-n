@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BtnScript : MonoBehaviour
 {
@@ -9,7 +10,11 @@ public class BtnScript : MonoBehaviour
     public GameObject panelCorrecto;
     public GameObject panelIncorrecto;
     public GameObject panelNoRespuesta;
-    int respuesta;
+    public int respuesta;
+
+    public Text txtOpcion1;
+    public Text txtOpcion2; 
+    public Text txtOpcion3;
 
 
     private scrOperacion operacionScript;
@@ -18,22 +23,6 @@ public class BtnScript : MonoBehaviour
     {
 
         operacionScript = objetoConScrOperacion.GetComponent<scrOperacion>();
-
-    }
-
-    public void Btn1()
-    {
-        respuesta = 1;
-
-    }
-    public void Btn2()
-    {
-        respuesta = 2;
-
-    }
-    public void Btn3()
-    {
-        respuesta = 3;
 
     }
 
@@ -50,6 +39,24 @@ public class BtnScript : MonoBehaviour
         {
             panelIncorrecto.SetActive(true);
         }
+    }
+
+    // Paneles
+
+    public void BtnCerrar()
+    {
+        panelNoRespuesta.SetActive(false);
+        panelIncorrecto.SetActive(false);
+    }
+
+    public void BtnReintentar()
+    {
+        SceneManager.LoadScene("momo");
+    }
+
+    public void BtnSalir()
+    {
+        SceneManager.LoadScene("SeleccionarJuegos");
     }
 }
 
